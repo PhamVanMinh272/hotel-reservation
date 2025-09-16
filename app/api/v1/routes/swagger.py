@@ -13,7 +13,7 @@ def swagger_ui():
 @swagger_bp.route('/spec', methods=['GET'])
 def get_spec():
     # 1. Compute the absolute path to your 'app/swagger' folder
-    spec_dir = os.path.join(current_app.root_path, 'swagger')
+    spec_dir = os.path.join(current_app.root_path, 'app/swagger')
 
     # 2. Serve the file by filename
-    return send_from_directory(spec_dir, 'openapi.yaml', mimetype='application/x-yaml')
+    return send_from_directory(spec_dir, 'openapi.json', mimetype='application/x-yaml')

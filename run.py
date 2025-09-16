@@ -2,7 +2,6 @@
 import json
 import os
 
-from flasgger import Swagger
 from flask import Flask
 from app.api import register_api
 from app.config import Config
