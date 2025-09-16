@@ -12,6 +12,8 @@ class DevelopmentConfig(Config):
     """Development configuration."""
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URI', 'sqlite:///dev.db')
+    # CORS_ORIGINS = ["http://localhost:5000"]  # Example for CORS settings
+
 
 class TestingConfig(Config):
     """Testing configuration."""

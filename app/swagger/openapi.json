@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api",
+      "url": "http://localhost:5000/api/v1",
       "description": "Local server"
     }
   ],
@@ -23,7 +23,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/Users"
                   }
                 }
               }
@@ -245,144 +245,160 @@
     }
   },
   "components": {
-    "Users": {
-
-    },
-    "Hotels": {
-      "type": "array",
-      "items": {
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "1"
-          },
-          "name": {
-            "type": "string",
-            "example": "Grand Hotel"
-          },
-          "location": {
-            "type": "string",
-            "example": "New York"
-          },
-          "roomsAvailable": {
-            "type": "integer",
-            "example": 20
-          }
+    "schemas": {
+      "Users": {
+        "type": "array",
+        "items": {
+          "properties": [
+            {
+              "id": {
+                "type": "integer",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "example": "John Doe"
+              }
+            }
+          ]
         }
-      }
     },
-    "Hotel": {
-        "type": "object",
-        "properties": {
+      "Hotels": {
+        "type": "array",
+        "items": {
+          "properties": {
             "id": {
-            "type": "integer",
-            "example": 1
+              "type": "integer",
+              "example": "1"
             },
             "name": {
-            "type": "string",
-            "example": "Grand Hotel"
+              "type": "string",
+              "example": "Grand Hotel"
             },
             "location": {
-            "type": "string",
-            "example": "New York"
+              "type": "string",
+              "example": "New York"
             },
             "roomsAvailable": {
-            "type": "integer",
-            "example": 20
+              "type": "integer",
+              "example": 20
             }
-        }
-    },
-    "Rooms": {
-      "type": "array",
-      "items": {
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": 101
-          },
-          "hotelId": {
-            "type": "integer",
-            "example": 1
-          },
-          "type": {
-            "type": "string",
-            "example": "Deluxe"
-          },
-          "price": {
-            "type": "number",
-            "format": "float",
-            "example": 150.00
-          },
-          "available": {
-            "type": "boolean",
-            "example": true
-          },
-          "maxOccupancy": {
-            "type": "integer",
-            "example": 2
           }
         }
-      }
-    },
-    "Room": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": 101
-          },
-          "hotelId": {
-            "type": "integer",
-            "example": 1
-          },
-          "type": {
-            "type": "string",
-            "example": "Deluxe"
-          },
-          "price": {
-            "type": "number",
-            "format": "float",
-            "example": 150.00
-          },
-          "available": {
-            "type": "boolean",
-            "example": true
-          },
-          "maxOccupancy": {
-            "type": "integer",
-            "example": 2
+      },
+      "Hotel": {
+          "type": "object",
+          "properties": {
+              "id": {
+              "type": "integer",
+              "example": 1
+              },
+              "name": {
+              "type": "string",
+              "example": "Grand Hotel"
+              },
+              "location": {
+              "type": "string",
+              "example": "New York"
+              },
+              "roomsAvailable": {
+              "type": "integer",
+              "example": 20
+              }
+          }
+      },
+      "Rooms": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 101
+            },
+            "hotelId": {
+              "type": "integer",
+              "example": 1
+            },
+            "type": {
+              "type": "string",
+              "example": "Deluxe"
+            },
+            "price": {
+              "type": "number",
+              "format": "float",
+              "example": 150.00
+            },
+            "available": {
+              "type": "boolean",
+              "example": true
+            },
+            "maxOccupancy": {
+              "type": "integer",
+              "example": 2
+            }
           }
         }
-    },
-    "Bookings": {
-      "type": "array",
-      "items": {
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": 1
-          },
-          "userId": {
-            "type": "integer",
-            "example": 1
-          },
-          "hotelId": {
-            "type": "integer",
-            "example": 1
-          },
-          "roomId": {
-            "type": "integer",
-            "example": 101
-          },
-          "checkInDate": {
-            "type": "string",
-            "format": "date",
-            "example": "2023-10-01"
-          },
-          "checkOutDate": {
-            "type": "string",
-            "format": "date",
-            "example": "2023-10-05"
+      },
+      "Room": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 101
+            },
+            "hotelId": {
+              "type": "integer",
+              "example": 1
+            },
+            "type": {
+              "type": "string",
+              "example": "Deluxe"
+            },
+            "price": {
+              "type": "number",
+              "format": "float",
+              "example": 150.00
+            },
+            "available": {
+              "type": "boolean",
+              "example": true
+            },
+            "maxOccupancy": {
+              "type": "integer",
+              "example": 2
+            }
+          }
+      },
+      "Bookings": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "userId": {
+              "type": "integer",
+              "example": 1
+            },
+            "hotelId": {
+              "type": "integer",
+              "example": 1
+            },
+            "roomId": {
+              "type": "integer",
+              "example": 101
+            },
+            "checkInDate": {
+              "type": "string",
+              "format": "date",
+              "example": "2023-10-01"
+            },
+            "checkOutDate": {
+              "type": "string",
+              "format": "date",
+              "example": "2023-10-05"
+            }
           }
         }
       }

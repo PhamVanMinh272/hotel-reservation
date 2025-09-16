@@ -3,6 +3,7 @@ import json
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from app.api import register_api
 from app.config import Config
 # from .extensions import db  # if you're using SQLAlchemy, for example
@@ -14,6 +15,7 @@ def create_app(config_name='development'):
     # Load configuration
     # app.config.from_object(f'app.config.{config_name.capitalize()}Config')
     app.config.from_object(Config)
+    CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins
 
     # Initialize extensions
     # db.init_app(app)
